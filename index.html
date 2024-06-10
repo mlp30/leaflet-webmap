@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -104,10 +105,10 @@
         // or: import GeoRasterLayer from "georaster-layer-for-leaflet";
 
 
-        var map = L.map('map',{ zoomControl: false }).setView([50.483823, 2.989761], 9); //final value sets the zoom, higher value = more zoom!
+        var map = L.map('map',{ zoomControl: false }).setView([52.907137,-1.409850], 7); //final value sets the zoom, higher value = more zoom!
 
-        L.tileLayer('https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=7a24dc9b29ab407484f976b9be7a22e7', {
-        attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=vuemkMjb7qtDVkeM7Bq2', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
         L.control.zoom({
@@ -117,246 +118,362 @@
 
 
         /*Legend specific*/
-        var legend = L.control({ position: "topleft" });
+        var legend = L.control({ position: "topright" });
 
         legend.onAdd = function(map) {
-      var div = L.DomUtil.create("div", "legend");
-      div.innerHTML += "<h4>Pte 27475 A Nash - WW1 battle locations</h4>";
-      div.innerHTML += '<i style="background: #964B00"></i><span>Battle of the Somme, Winter 1916</span><br>';
-      div.innerHTML += '<i style="background: #0000FF"></i><span>Battles of the Scarpe, April 1917</span><br>';
-      div.innerHTML += '<i style="background: #FF0000"></i><span>3rd Battle of Ypres, July-October 1917</span><br>';
-      div.innerHTML += '<i style="background: #FFFF00"></i><span>Battles of the Somme, August-October 1918</span><br>';
-      div.innerHTML += '<i style="background: #FFA500"></i><span>Advance to Picardie, October-November 1918</span><br>';
-      div.innerHTML += '<i style="background: #023020"></i><span>Armisitice day & Boxing day 1918</span><br>';
-
-            
+          var div = L.DomUtil.create("div", "legend");
+          div.innerHTML += "<h4>Accessible walks guide</h4>";
+          div.innerHTML += '<h5>A list of accessible national and country parks,<br> trails, forests, mountains & beach walks! <br> Each route colour coded on difficulty as follows:<h5>';
+          div.innerHTML += '<i style="background: #2AAD27"></i><span>Easy going</span><br>';
+          div.innerHTML += '<i style="background: #CB8427"></i><span>Break a sweat</span><br>';
+          div.innerHTML += '<i style="background: #CB2B3E"></i><span>Need a pub halfway</span><br>';
+          
+          
 
           return div;
         };
 
         legend.addTo(map);
 
-        
 
-        var cm = new L.circleMarker([50.055348, 2.688249],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'brown',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of the Ancre, final in the 1st Battle of the Somme - Winter 1916</b>")
-        .addTo(map);
-            
-        var cm = new L.circleMarker([50.297037,	2.801366],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'blue',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Arras - April 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.270636, 2.893472],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'blue',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Capture of Monchy-le-Preux - April 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.887928,2.875806],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Pilckem ridge - April 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.904368, 3.011],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Menin Gate Road, Passchendale - September 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.852083, 2.986157],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Polygon Wood - October 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.877324,3.0025],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Broonseide - October 1917</b>")
-        .addTo(map);
-
-        var cm = new L.circleMarker([50.921138, 2.961073],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Poelcappelle - October 1917</b>")
-        .addTo(map);
+//        var popup = L.popup({
+//          closeButton: false,
+//          autoClose: false
+//        })
+//       .setLatLng([53.541973, 0.870235])
+//        .setContent('<p>Text box on a map</p>')
+//        .openOn(map);
 
 
-        var cm = new L.circleMarker([50.898751,3.022187],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'red',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Passchendaele - October 1917</b>")
-        .addTo(map);
 
-        
+        var greenIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+            });
 
-        var cm = new L.circleMarker([49.972816, 2.617122],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'yellow',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of the Ancre, 2nd Battle of the Somme - April 1918</b>")
-        .addTo(map);
-        
-        var cm = new L.circleMarker([49.999796,2.653132],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'yellow',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Albert, 2nd Battle of the Somme - August 1918</b>")
-        .addTo(map);
-        
-        var cm = new L.circleMarker([50.109861,	3.084799],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'yellow',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Havrincourt - September 1918</b>")
-        .addTo(map);
-        
-        var cm = new L.circleMarker([50.182428,3.065661],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'yellow',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Canal du Nord - September 1918</b>")
-        .addTo(map);
+        var orangeIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+            });
+
+        var redIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+            });
 
 
-        var cm = new L.circleMarker([50.172515,3.233431],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'yellow',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of Cambrai - October 1918 </b>")
+
+
+
+
+      const marker1 = L.marker([51.072361,0.447144], {icon: orangeIcon})
+        .bindPopup("<b>Bedgebury Pinetum </b><br>2 to 4.5 mile circular<br><a href='https://www.forestryengland.uk/bedgebury-national-pinetum-and-forest/pinetum-trail-bedgebury#:~:text=Start%20the%20waymarked%20trail%20by,gravel%20and%20suitable%20for%20wheelchairs.'>Link to route</a>")
         .addTo(map);
 
-        var cm = new L.circleMarker([50.179621,3.492139],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'orange',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of the Selle - October 1918  </b>")
-        .addTo(map);
-        
-        var cm = new L.circleMarker([50.155751,3.748124],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'orange',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Battle of the Sambre - November 1918  </b>")
-        .addTo(map);
-        
-        var cm = new L.circleMarker([50.249245, 3.63973],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'green',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Le Quesnoy - 11th November 1918  </b>")
+      const marker2 = L.marker([51.079382,0.390152],  {
+          icon: redIcon})
+          .bindPopup("<b>Bewl Water </b><br>12.5 mile circular<br><a href='https://www.bewlwater.co.uk/wp-content/uploads/2023/05/Cycling-Route-Map-2023.pdf'>Link to route</a>")
+          .addTo(map);
+
+      const marker3 = L.marker([51.377512,0.369145],  {
+      icon: greenIcon})
+      .bindPopup("<b>Camer Park </b><br>1.25 mile linear<br><a href='https://explorekent.org/activities/camer-park-stile-free-trail/'>Link to route</a>")
+      .addTo(map);
+
+      const marker4 = L.marker([51.068303,1.031767], {icon: greenIcon})
+        .bindPopup("<b>Royal Military Canal, West Hythe to Hythe </b><br>2 mile linear<br><a href='https://explorekent.org/activities/royal-military-canal-west-hythe-to-hythe/'>Link to route</a>")
         .addTo(map);
 
-        var cm = new L.circleMarker([50.399068,4.445004],{
-                radius: 10,
-                stroke: true,
-                color: 'black',
-                opacity: 1,
-                weight: 2,
-                fill: true,
-                fillColor: 'green',
-                fillOpacity: 0.6
-            }).bindPopup("<b>Chareloi, Boxing Day 1918  </b>")
+      const marker5 = L.marker([51.083075,1.066543],  {
+          icon: greenIcon})
+          .bindPopup("<b>Brockhill Country Park, Hythe </b><br>0.8 to 1.7 mile circular<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/brockhill-country-park/getting-around-the-park'>Link to route</a>")
+          .addTo(map);
+
+      const marker6 = L.marker([51.113268,0.219077],  {
+          icon: greenIcon})
+          .bindPopup("<b>Broadwater Warren, Tunbridge Wells </b><br>1.5 mile circular<br><a href='https://www.rspb.org.uk/days-out/reserves/broadwater-warren'>Link to route</a>")
+          .addTo(map);
+
+      const marker7 = L.marker([51.29897,1.05773], {icon: redIcon})
+        .bindPopup("<b>Crab and Winkle way, University to Whitstable harbour </b><br>11 mile linear<br><a href='https://explorekent.org/activities/crab-and-winkle-way-canterbury-to-whitstable/'>Link to route</a>")
         .addTo(map);
+
+      const marker8 = L.marker([51.197422,0.271236],  {
+          icon: redIcon})
+          .bindPopup("<b>Tonbridge to Penshurst Castle </b><br>10.4 mile linear<br><a href='https://www.penshurstplace.com/public/uploads/browser/files/Cycle%20Route.pdf'>Link to route</a>")
+          .addTo(map);
+
+      const marker9 = L.marker([51.267962,0.204483],  {
+          icon: greenIcon})
+          .bindPopup("<b>Knole Park </b><br>3 mile circular<br><a href='https://explorekent.org/activities/knole/'>Link to route</a>")
+          .addTo(map);
+
+       const marker10 = L.marker([51.080665,0.585775], {icon: orangeIcon})
+        .bindPopup("<b>Hemsted Forest, Benenden </b><br>3.8 mile linear<br><a href='https://explorekent.org/activities/hemsted-forest-easy-access-trail/'>Link to route</a>")
+        .addTo(map);
+
+      const marker11 = L.marker([51.382769,0.599709],  {
+          icon: greenIcon})
+          .bindPopup("<b>Riverside Country Park, Gillingham </b><br>1.25 mile circular<br><a href='https://explorekent.org/activities/riverside-country-park-2/'>Link to route</a>")
+          .addTo(map);
+
+      const marker12 = L.marker([51.459669,0.717522],  {
+          icon: greenIcon})
+          .bindPopup("<b>Thames and Medway estuary trail </b><br>1.8 mile linear<br><a href='https://explorekent.org/activities/thames-and-medway-estuary/'>Link to route</a>")
+          .addTo(map);
+          
+          
+       const marker13 = L.marker([51.134703,0.282568], {icon: greenIcon})
+        .bindPopup("<b>Dunorlan Park </b><br>Circular<br><a href='https://tunbridgewells.gov.uk/community-and-leisure/parks-and-play-areas/dunorlan-park'>Link to route</a>")
+        .addTo(map);
+
+      const marker14 = L.marker([51.295293,1.124621],  {
+          icon: greenIcon})
+          .bindPopup("<b>Fordwich, Canterbury </b><br>3.8 mile linear<br><a href='https://explorekent.org/activities/fordwich-to-reed-pond/'>Link to route</a>")
+          .addTo(map);
+
+      const marker15 = L.marker([51.078622,1.188926],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Folkestone beach and promenade </b><br>2.5 mile circular<br><a href='https://folkestoneharbourarm.co.uk/'>Link to route</a>")
+          .addTo(map);
+
+       const marker16 = L.marker([51.32534,0.341522], {icon: greenIcon})
+        .bindPopup("<b>Trosley Country Park </b><br>1.5 to 2.5 mile circular<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/trosley-country-park'>Link to route</a>")
+        .addTo(map);
+
+      const marker17 = L.marker([51.403352,0.387246],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Jeskyns </b><br>1.5 to 4 mile circular<br><a href='https://www.forestryengland.uk/sites/default/files/documents/Jeskyns%20walking%20map.pdf'>Link to route</a>")
+          .addTo(map);
+
+      const marker18 = L.marker([51.300979,0.499773],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Cobtree Manor Park </b><br>Circular<br><a href='https://www.visitmaidstone.com/things-to-do/cobtree-manor-park-p12691'>Link to route</a>")
+          .addTo(map);
+
+       const marker19 = L.marker([51.316631,0.433572], {icon: greenIcon})
+        .bindPopup("<b>Leybourne Lakes </b><br>Circular<br><a href='https://tmactive.co.uk/locations/leybourne-lakes/welcome'>Link to route</a>")
+        .addTo(map);
+
+      const marker20 = L.marker([51.288043,0.405589],  {
+          icon: greenIcon})
+          .bindPopup("<b>Manor Park, West Malling </b><br>Circular<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/manor-park-country-park'>Link to route</a>")
+          .addTo(map);
+
+      const marker21 = L.marker([51.403673,0.419087],  {
+          icon: greenIcon})
+          .bindPopup("<b>Shorne Woods </b><br>Circular<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/shorne-woods-country-park'>Link to route</a>")
+          .addTo(map);
+
+      const marker22 = L.marker([51.25308,0.445072],  {
+          icon: greenIcon})
+          .bindPopup("<b>Teston Bridge </b><br>Linear<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/teston-bridge-country-park'>Link to route</a>")
+          .addTo(map);
+
+      const marker23 = L.marker([51.297647,0.592562],  {
+          icon: greenIcon})
+          .bindPopup("<b>White Horse Wood, Detling </b><br>Circular<br><a href='https://www.kent.gov.uk/leisure-and-community/kent-country-parks/find-a-kent-country-park/white-horse-wood-country-park'>Link to route</a>")
+          .addTo(map);
+
+       const marker24 = L.marker([51.473333,0.00319], {icon: orangeIcon})
+        .bindPopup("<b>Greenwich Park </b><br>Circular<br><a href='https://www.royalparks.org.uk/visit/parks/greenwich-park'>Link to route</a>")
+        .addTo(map);
+
+      const marker25 = L.marker([50.914035,0.970306],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Dungeness to Dymchurch </b><br>2 to 16 mile linear<br><a href='https://explorekent.org/activities/dungeness-to-littlestone-shingle-and-sand/'>Link to route</a>")
+          .addTo(map);
+
+      const marker26 = L.marker([51.379043,1.197605],  {
+          icon: greenIcon})
+          .bindPopup("<b>Reculver to Minnis Bay </b><br>7.5 mile linear<br><a href='https://explorekent.org/activities/minnis-bay-to-reculver-country-park/'>Link to route</a>")
+          .addTo(map);
+
+
+      const marker27 = L.marker([51.106477,0.189525],  {
+          icon: greenIcon})
+          .bindPopup("<b>Birchden Wood, Tunbridge Wells </b><br>0.9 mile circular<br><a href='https://www.forestryengland.uk/birchden-wood'>Link to route</a>")
+          .addTo(map);
+
+
+      const marker28 = L.marker([51.213365,0.896294],  {
+          icon: greenIcon})
+          .bindPopup("<b>Kings Wood, Ashford </b><br><a href='https://kentdowns.org.uk/activities/kings-wood/#:~:text=Easy%20access%20information,with%20pushchairs%20and%2For%20wheelchairs.'>Link to route</a>")
+          .addTo(map);
+
+
+      const marker29 = L.marker([51.551972,0.282308],  {
+          icon: greenIcon})
+          .bindPopup("<b>Thames Chase, Upminster </b><br><a href='https://www.thameschase.org.uk/'>Link to route</a>")
+          .addTo(map);
+
+
+      const marker30 = L.marker([54.512413,-2.92437],  {
+          icon: greenIcon})
+          .bindPopup("<b>Brothers Water </b><br>2.4 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws2'>Link to route</a>")
+          .addTo(map);
+
+      const marker31 = L.marker([54.429317,-2.839503],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Kentmere river walk </b><br>2.8 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws3'>Link to route</a>")
+          .addTo(map);
+
+      const marker32 = L.marker([54.320696,-2.79071],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Kendal house to Scout scar </b><br>5.3 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws4'>Link to route</a>")
+          .addTo(map);
+
+      const marker33 = L.marker([54.352917,-2.939503],  {
+          icon: orangeIcon})
+          .bindPopup("<b>West Windermere shore </b><br>5.6 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws6'>Link to route</a>")
+          .addTo(map);
+
+      const marker34 = L.marker([54.448035,-3.088361],  {
+          icon: redIcon})
+          .bindPopup("<b>New Dungeon Ghyll to Elterwater </b><br>7.5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws43'>Link to route</a>")
+          .addTo(map);
+
+      const marker35 = L.marker([54.433657,-3.037327],  {
+          icon: greenIcon})
+          .bindPopup("<b>Elterwater to Skelwith bridge </b><br>2.5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws11'>Link to route</a>")
+          .addTo(map);
+
+      const marker36 = L.marker([54.429451,-3.087408],  {
+          icon: greenIcon})
+          .bindPopup("<b>Blea Tarn, Ambleside </b><br>1.9 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws12'>Link to route</a>")
+          .addTo(map);
+
+      const marker37 = L.marker([54.386264,-3.032912],  {
+          icon: greenIcon})
+          .bindPopup("<b>Tarn Hows </b><br>1.9 mile circular<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws13'>Link to route</a>")
+          .addTo(map);
+
+      const marker38 = L.marker([54.3898,-3.04654],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Yewdale to Coniston </b><br>4 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws14'>Link to route</a>")
+          .addTo(map);
+
+      const marker39 = L.marker([54.364256,-3.067046],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Coniston shoreline </b><br>4.3 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws17'>Link to route</a>")
+          .addTo(map);
+
+      const marker40 = L.marker([54.277124,-3.210153],  {
+          icon: greenIcon})
+          .bindPopup("<b>Broughton railway trail </b><br>2.8 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws18'>Link to route</a>")
+          .addTo(map);
+
+      const marker41 = L.marker([54.526065,-3.377678],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Ennerdale Forest Road </b><br>11.5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws24'>Link to route</a>")
+          .addTo(map);
+
+      const marker42 = L.marker([54.540804,-3.279113],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Buttermere </b><br>4.6 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws25'>Link to route</a>")
+          .addTo(map);
+
+      const marker43 = L.marker([54.577159,-3.340473],  {
+          icon: greenIcon})
+          .bindPopup("<b>Loweswater </b><br>2.5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws26'>Link to route</a>")
+          .addTo(map);
+
+      const marker44 = L.marker([54.603271,-3.19774],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Force crag mine nr Keswick </b><br>5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws30'>Link to route</a>")
+          .addTo(map);
+
+      const marker45 = L.marker([54.579612,-3.16432],  {
+          icon: redIcon})
+          .bindPopup("<b>Cats bells </b><br>2.5 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws33'>Link to route</a>")
+          .addTo(map);
+
+      const marker46 = L.marker([54.581965,-3.164248],  {
+          icon: greenIcon})
+          .bindPopup("<b>Derwentwater shoreside </b><br>5.2 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws34'>Link to route</a>")
+          .addTo(map);
+
+      const marker47 = L.marker([54.596559,-3.137913],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Friars Crag </b><br>1.4 mile circular<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws36'>Link to route</a>")
+          .addTo(map);
+
+      const marker48 = L.marker([54.604057,-3.131915],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Keswick to Threlkeld </b><br>6.2 mile linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws37'>Link to route</a>")
+          .addTo(map);
+
+      const marker49 = L.marker([54.618038,-3.115178],  {
+          icon: redIcon})
+          .bindPopup("<b>Latrigg & Skiddaw, Keswick </b><br>1.2 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws38'>Link to route</a>")
+          .addTo(map);
+
+      const marker50 = L.marker([54.427488,-3.008907],  {
+          icon: greenIcon})
+          .bindPopup("<b>Loughrigg Tarn </b><br>1.7 miles circular<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws41'>Link to route</a>")
+          .addTo(map);
+
+      const marker51 = L.marker([54.399671,-3.06985],  {
+          icon: orangeIcon})
+          .bindPopup("<b>High Tilberthwaite to Little Langdale </b><br>3.7 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws44'>Link to route</a>")
+          .addTo(map);
+
+      const marker52 = L.marker([54.449778,-3.003556],  {
+          icon: orangeIcon})
+          .bindPopup("<b>White Moss Common to Steps End </b><br>1.9 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws45'>Link to route</a>")
+          .addTo(map);
+
+      const marker53 = L.marker([54.3796,-2.902987],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Orrest Head from Windermere station </b><br>2.2 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws50'>Link to route</a>")
+          .addTo(map);
+
+      const marker54 = L.marker([54.278606,-2.955833],  {
+          icon: greenIcon})
+          .bindPopup("<b>Windermere Lakeside to Newby Bridge </b><br>1 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/west-windermere-way'>Link to route</a>")
+          .addTo(map);
+
+      const marker55 = L.marker([54.421417,-2.980072],  {
+          icon: redIcon})
+          .bindPopup("<b>Clappersgate to Wray Castle nr Lake Windermere </b><br>5 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws46'>Link to route</a>")
+          .addTo(map);
+
+      const marker56 = L.marker([54.400835,-2.964076],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Wray Castle to Loanthwaite </b><br>4.4 miles linear<br><a href='https://www.lakedistrict.gov.uk/visiting/things-to-do/walking/mileswithoutstiles/mws47'>Link to route</a>")
+          .addTo(map);
+
+      const marker57 = L.marker([54.609113,-3.227639],  {
+          icon: redIcon})
+          .bindPopup("<b>Winlatter forest </b><br><a href='https://www.forestryengland.uk/whinlatter'>Link to route</a>")
+          .addTo(map);
+
+      const marker58 = L.marker([54.340648,-3.022731],  {
+          icon: greenIcon})
+          .bindPopup("<b>Grizedale forest </b><br><a href='https://www.forestryengland.uk/sites/default/files/documents/Grizedale%20Forest%20website%20map%20Aug%202021.pdf'>Link to route</a>")
+          .addTo(map);          
+
+      const marker59 = L.marker([50.77521,0.152998],  {
+          icon: greenIcon})
+          .bindPopup("<b>Seven Sisters country park </b><br>1 miles linear<br><a href='https://www.accessibilityguides.org/content/seven-sisters-country-park'>Link to route</a>")
+          .addTo(map);
+
+      const marker60 = L.marker([50.760093,0.196234],  {
+          icon: orangeIcon})
+          .bindPopup("<b>Seven Sisters cliffs </b><br><a href='https://www.sevensisters.org.uk/'>Link to route</a>")
+          .addTo(map); 
 
 
 
